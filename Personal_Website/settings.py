@@ -81,6 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Personal_Website.wsgi.application'
 
+a = 5
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
