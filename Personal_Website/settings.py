@@ -87,8 +87,12 @@ WSGI_APPLICATION = 'Personal_Website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db88up6ep1ichd',
+        'USER': 'rkjdnhupcjqgjt',
+        'PASSWORD': 't4g5u092N4pVUq34Rcb-KYhrm-',
+        'HOST': 'ec2-54-243-236-70.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -139,3 +143,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 )
+
+
+# Parse DB
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
