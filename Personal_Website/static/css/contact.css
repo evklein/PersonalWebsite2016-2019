@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'PageFont';
+    src: url('../fonts/ABeeZee-Regular.otf');
+}
+
+html, body {
+  background-color: #E6E6DC;
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+  color: #63635F;
+  font-family: 'PageFont', Helvetica;
+}
+
+form {
+  margin: 0 auto;
+  width: 400px;
+}
+
+label {
+  width: 400px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  font-family: 'PageFont', Helvetica;
+  color: #63635F;
+}
+
+input {
+      color: #63635F;
+      margin: 0 auto;
+      width: 400px;
+}
+
+button#submit {
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 15px;
+  height: 50px;
+  border: solid 2px #81A594;
+  background-color: #00628B;
+  color: white;
+  font-family: 'PageFont';
+  font-size: 18px;
+}
+
+button#submit:active {
+  background-color: #005272;
+  color: #E6E6DC;
+}
+
+button#submit:focus {
+    outline: 0;
+}
+
+textarea {
+  resize: none;
+  font-family: Helvetica;
+  margin: 0 auto;
+  width: 400px;
+  height: 235px;
+  color: #63635F;
+}
+
+.push {
+  padding-bottom: 90px;
+}
