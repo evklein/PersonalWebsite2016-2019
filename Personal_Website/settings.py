@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'aobp@(g6m7^q80sc8etwzs&%frhf=xqh-vfen$1m9!+j1r0%@n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Change this for DEBUGGING!
+DEBUG = False # Change this for DEBUGGING!
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = [ 'www.evklein.com', 'evklein3.herokuapp.com' ]
 
 # E-Mail Data
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
