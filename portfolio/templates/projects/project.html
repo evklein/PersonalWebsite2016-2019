@@ -1,0 +1,70 @@
+{% include "header_footer.html" %}
+{% load staticfiles %}
+
+<html>
+  <title>{{ page_data.title }}</title>
+  <body>
+    <div class="content">
+      <h2>{{ page_data.title }}</h2>
+      <hr class="title-bar"/>
+      <p class="short_description">{{ page_data.short_description|safe }}</p>
+      {% if page_data.screenshot_url_2 != "null" %} <!-- If there's more than one screenshot.-->
+        <button src="{% static 'images/ui/slider_right_button.png' %}" class="arrow" id="left" onclick="plusDivs(1)">&#10095;</button>
+      {% endif %}
+      <div class="screenshots">
+        <img class="screenshot" src="{% static page_data.screenshot_url_1 %}">
+        {% if page_data.screenshot_url_2 != "null" %}
+          <img class="screenshot" src="{% static page_data.screenshot_url_2 %}">
+        {% endif %}
+        {% if page_data.screenshot_url_3 != "null" %}
+          <img class="screenshot" src="{% static page_data.screenshot_url_3 %}">
+        {% endif %}
+        {% if page_data.screenshot_url_4 != "null" %}
+          <img class="screenshot" src="{% static page_data.screenshot_url_4 %}">
+        {% endif %}
+        {% if page_data.screenshot_url_5 != "null" %}
+          <img class="screenshot" src="{% static page_data.screenshot_url_5 %}">
+        {% endif %}
+      </div>
+      {% if page_data.screenshot_url_2 != "null" %} <!-- If there's more than one screenshot.-->
+        <button src="{% static 'images/ui/slider_left_button.png' %}" class="arrow" id="right" onclick="plusDivs(-1)">&#10094;</button>
+      {% endif %}
+      <div class="image-slider-markers">
+        <img class="marker" id="1" src="{% static 'images/ui/slider_marker_selected.png' %}">
+        {% if page_data.screenshot_url_2 != "null" %}
+          <img class="marker" id="2" src="{% static 'images/ui/slider_marker_unselected.png' %}">
+        {% endif %}
+        {% if page_data.screenshot_url_3 != "null" %}
+          <img class="marker" id="3" src="{% static 'images/ui/slider_marker_unselected.png' %}">
+        {% endif %}
+        {% if page_data.screenshot_url_4 != "null" %}
+          <img class="marker" id="4" src="{% static 'images/ui/slider_marker_unselected.png' %}">
+        {% endif %}
+        {% if page_data.screenshot_url_5 != "null" %}
+          <img class="marker" id="5" src="{% static 'images/ui/slider_marker_unselected.png' %}">
+        {% endif %}
+      </div>
+      <div class="descriptions">
+        <p>Version: {{ page_data.version }}</p>
+        <p>Status: {{ page_data.status }}</p>
+        <p>Technologies used: {{ page_data.technologies_used|safe }}</p>
+        <hr />
+        <p class="long-description">{{ page_data.long_description|safe|linebreaks }}</p>
+        <hr />
+        <div class="link-images">
+          <a href="{{ page_data.source_code_link }}">
+            <img class ="github" src="{% static 'images/ui/github_logo.png' %}">
+          </a>
+          {% if page_data.store_url != "null" %}
+            <a href="{{ page_data.store_url }}">
+              <img class = "store" src="{% static page_data.store_logo_url %}">
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+  </body>
+  <link rel="stylesheet" href="{% static 'css/project.css' %}">
+  <script src="{% static 'javascript/image_slider.js'  %}"></script>
+</html>

@@ -1,0 +1,54 @@
+{% include "header_footer.html" %}
+{% load staticfiles %}
+<html>
+  <title>Portfolio</title>
+  <body>
+    <h2>Portfolio</h2>
+    <div class="row">
+        <figure>
+          <a href="/portfolio/Kill-Switch">
+            <img src="{% static 'images/title/kill_switch.png' %}">
+          </a>
+          <figcaption>Productivity extension for Google Chrome.</figcaption>
+        </figure>
+      <figure>
+        <a href="/portfolio/Song-Friend">
+          <img src="{% static 'images/title/song_friend.png' %}">
+        </a>
+        <figcaption>Android application built to help musicians with song-writing and
+              on-the-go audio recording.</figcaption>
+      </figure>
+      <figure>
+        <a href="/portfolio/Stegory">
+          <img src="{% static 'images/title/stegory.png' %}">
+        </a>
+        <figcaption>Desktop application that uses cryptography and steganography to
+          encrypt images with data.</figcaption>
+      </figure>
+    </div>
+    <div class="row">
+      <figure>
+        <a href="/portfolio/Hex-Helper">
+          <img src="{% static 'images/title/hex_helper.png' %}">
+        </a>
+        <figcaption>Desktop application used to read hexadecimal color values of
+          screenshots.</figcaption>
+      </figure>
+      <figure>
+        <a href="/portfolio/aes0p">
+          <img src="{% static 'images/title/aes0p.png' %}">
+        </a>
+        <figcaption>2D game built with LibGDX for the 2014 GameDev.StackExchange game
+          jam.</figcaption>
+      </figure>
+      <figure>
+        <a href="/portfolio/Ghostly">
+          <img src="{% static 'images/title/ghostly.png' %}">
+        </a>
+        <figcaption>2D game built for Android with LibGDX.</figcaption>
+      </figure>
+    </div>
+    <div class="push"></div>
+  </body>
+  <link rel="stylesheet" href="{% static 'css/portfolio_listing.css' %}"
+</html>
