@@ -118,15 +118,6 @@ li p {
   padding-bottom: 0px;
 }
 
-.space {
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    margin: 0 auto;
-    padding-right: 30px;
-    margin-bottom: 10px;
-}
-
 .push {
   padding-bottom: 90px;
 }
