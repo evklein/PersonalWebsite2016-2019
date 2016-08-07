@@ -60,11 +60,11 @@ button#submit:focus {
 }
 
 textarea {
-  resize: none;
+  resize: vertical;
   font-family: Helvetica;
   margin: 0 auto;
   width: 400px;
-  height: 235px;
+  height: 300px;
   color: #63635F;
 }
 
