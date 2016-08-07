@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'aobp@(g6m7^q80sc8etwzs&%frhf=xqh-vfen$1m9!+j1r0%@n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # Change this for DEBUGGING!
+DEBUG = True # Change this for DEBUGGING!
 
 ALLOWED_HOSTS = [ 'www.evklein.com', 'evklein3.herokuapp.com' ]
 
@@ -133,11 +133,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_ROOT = BASE_DIR
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'))
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
