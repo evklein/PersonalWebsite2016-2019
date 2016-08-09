@@ -52,9 +52,11 @@
         <p class="long-description">{{ page_data.long_description|safe|linebreaks }}</p>
         <hr />
         <div class="link-images">
-          <a href="{{ page_data.source_code_link }}">
-            <img class ="github" src="{% static 'images/ui/github_logo.png' %}">
-          </a>
+          {% if page_data.source_code_link != "null" %}
+            <a href="{{ page_data.source_code_link }}">
+              <img class ="github" src="{% static 'images/ui/github_logo.png' %}">
+            </a>
+          {% endif %}
           {% if page_data.store_url != "null" %}
             <a href="{{ page_data.store_url }}">
               <img class = "store" src="{% static page_data.store_logo_url %}">
