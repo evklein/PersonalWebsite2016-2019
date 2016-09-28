@@ -26,7 +26,7 @@ SECRET_KEY = 'aobp@(g6m7^q80sc8etwzs&%frhf=xqh-vfen$1m9!+j1r0%@n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False # Change this for DEBUGGING!
 
-ALLOWED_HOSTS = [ 'www.evklein.com/contact', 'evklein3.herokuapp.com', 'www.hasherr.com' ]
+ALLOWED_HOSTS = [ 'www.evklein.com', 'www.evklein.com/contact', 'evklein3.herokuapp.com', 'www.hasherr.com' ]
 
 # E-Mail Data
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
