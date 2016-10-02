@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'aobp@(g6m7^q80sc8etwzs&%frhf=xqh-vfen$1m9!+j1r0%@n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Change this for DEBUGGING!
+DEBUG = False # Change this for DEBUGGING!
 
 ALLOWED_HOSTS = [ 'www.evklein.com', 'www.evklein.com/contact', 'evklein3.herokuapp.com', 'www.hasherr.com' ]
 
@@ -32,9 +32,9 @@ ALLOWED_HOSTS = [ 'www.evklein.com', 'www.evklein.com/contact', 'evklein3.heroku
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'evklein.com@gmail.com'
-EMAIL_HOST_PASSWORD = '979TK@evkcom161'
+EMAIL_HOST = 'in-v3.mailjet.com'
+EMAIL_HOST_USER = '6f33ad10cf2b7f0dcf85e0961e2711f6'
+EMAIL_HOST_PASSWORD = '502996082da10dc67a43320e14b33b5a'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Application definition
