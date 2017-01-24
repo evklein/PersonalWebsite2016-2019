@@ -7,6 +7,12 @@ from .models import Project
 def portfolio(request):
     return render_to_response('portfolio_listing.html')
 
+def pluto(request):
+    page_data = Project.objects.get(title="pluto")
+    context = { 'page_data': page_data }
+    template = loader.get_template('projects/project.html')
+    return HttpResponse(template.render(context, request))
+
 def dj_say(request):
     page_data = Project.objects.get(title="dj-say")
     context = { 'page_data': page_data }
