@@ -8,7 +8,7 @@ def portfolio(request):
     return render_to_response('portfolio_listing.html')
 
 def pluto(request):
-    page_data = Project.objects.get(title="pluto")
+    page_data = Project.objects.get(title="Pluto")
     context = { 'page_data': page_data }
     template = loader.get_template('projects/project.html')
     return HttpResponse(template.render(context, request))
