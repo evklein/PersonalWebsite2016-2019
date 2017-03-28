@@ -9,7 +9,7 @@
 }
 
 html, body {
-  background-color: #414141;
+  background-color: #C0B3A0;
   width: 100%;
   position: relative;
   overflow: auto;
@@ -19,7 +19,7 @@ h2 {
   text-align: center;
   font-size: 36px;
   width: 100%;
-  color: white; /* #63635F;*/
+  color: #22252C; /* #63635F;*/
   font-family: 'PageFont', Helvetica;
 }
 
@@ -44,12 +44,12 @@ p {
 
 .portfolio-link a:link {
   text-decoration: none;
-  color: #00628B;
+  color: #414141;
 }
 
 .portfolio-link a:visited {
   text-decoration: none;
-  color: #00628B;
+  color: #414141;
 }
 
 img.profile {
