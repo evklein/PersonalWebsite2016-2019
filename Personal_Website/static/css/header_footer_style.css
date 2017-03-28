@@ -22,7 +22,7 @@ html, body{
   font-family: 'TitleFont';
   font-size: 48px;
   margin: 0;
-  color: #C0B3A0;
+  color: white;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 20px;
@@ -37,7 +37,7 @@ html, body{
 }
 
 .title:hover {
-  color: #E6E6DC;
+  color: #E14658;
 }
 
 .links {
@@ -67,7 +67,7 @@ html, body{
 
 
 .links a:hover {
-  background-color: #005272;
+  background-color: #E14658;
   color: #E6E6DC;
 }
 
