@@ -8,12 +8,12 @@ html, body{
 }
 
 .navbar-wrapper {
-  background-color: #031424;
+  background-color: #00628B;
   display: inline-block;
   width: 100%;
   height: 98px;
   position: relative;
-  border-bottom: solid 5px #CF6766;
+  border-bottom: solid 5px #81A594;
 }
 
 
