@@ -8,12 +8,12 @@ html, body{
 }
 
 .navbar-wrapper {
-  background-color: #22252C;
+  background-color: #031424;
   display: inline-block;
   width: 100%;
   height: 98px;
   position: relative;
-  border-bottom: solid 5px #E14658;
+  border-bottom: solid 5px #CF6766;
 }
 
 
@@ -37,7 +37,7 @@ html, body{
 }
 
 .title:hover {
-  color: #E14658;
+  color: #8eae8d;
 }
 
 .links {
@@ -67,7 +67,7 @@ html, body{
 
 
 .links a:hover {
-  background-color: #E14658;
+  background-color: #8eae8d;
   color: #E6E6DC;
 }
 
