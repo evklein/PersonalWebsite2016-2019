@@ -37,7 +37,7 @@ html, body{
 }
 
 .title:hover {
-  color: #8eae8d;
+  color: #8EAEBD;
 }
 
 .links {
@@ -67,7 +67,7 @@ html, body{
 
 
 .links a:hover {
-  background-color: #8eae8d;
+  background-color: #8EAEBD;
   color: #E6E6DC;
 }
 
