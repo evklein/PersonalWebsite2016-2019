@@ -96,16 +96,15 @@ a:visited {
 }
 
 .footer {
-  background-color: #00628B;
+  background-color: #eaeaea;
   height: 70px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
-  border-top: solid 5px #81A594;
-  color: white;
-  font-family: Helvetica;
+  color: #075c9e;
+  font-family: 'TitleFont';
   font-size: 14px;
   text-align: center;
   line-height: 70px;
