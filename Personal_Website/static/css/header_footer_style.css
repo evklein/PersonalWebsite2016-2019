@@ -16,6 +16,9 @@ html, body{
   text-align: center;
 }
 
+hr {
+  color: #075c9e;
+}
 
 .title {
   font-family: 'TitleFont';
