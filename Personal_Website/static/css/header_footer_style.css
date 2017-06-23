@@ -110,6 +110,10 @@ a:visited {
   line-height: 70px;
 }
 
+.footer a {
+    font-size: 28px;
+}
+
 .footer a:link {
   color: #075c9e;
   text-decoration: none;
