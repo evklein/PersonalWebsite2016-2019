@@ -40,14 +40,10 @@ html, body{
 }
 
 .links {
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }
 
 .links a {
   font-size: 24px;
-  float: right;
   font-family: 'TitleFont';
   color: white;
   text-align: center;
