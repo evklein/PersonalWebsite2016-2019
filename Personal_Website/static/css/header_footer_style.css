@@ -40,12 +40,13 @@ html, body{
 }
 
 .links {
+  display: inline-block;
 }
 
 .links a {
   font-size: 24px;
-  font-family: 'TitleFont';
-  color: white;
+  font-family: 'TitleFont';  
+  color: #075c9e;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -62,8 +63,9 @@ html, body{
 
 
 .links a:hover {
-  background-color: #8EAEBD;
-  color: #E6E6DC;
+  background-color: #075c9e;
+  color: white;
+  border-radius: 8px;
 }
 
 a:link {
