@@ -123,3 +123,9 @@ a:visited {
   color: #075c9e;
   text-decoration: none;
 }
+
+.footer p {
+    font-size: 14px;
+    color: #075c9e;
+    font-family: 'TitleFont';
+}
