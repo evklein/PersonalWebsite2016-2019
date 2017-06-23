@@ -17,6 +17,8 @@ html, body{
 }
 
 hr {
+  border: 0;
+  height: 2px;
   color: #075c9e;
 }
 
