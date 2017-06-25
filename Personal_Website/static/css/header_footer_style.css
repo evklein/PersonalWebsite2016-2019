@@ -111,6 +111,7 @@ a:visited {
 }
 
 .footer a {
+    padding-top: 8px;
     font-size: 28px;
 }
 
