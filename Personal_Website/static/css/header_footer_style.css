@@ -60,18 +60,18 @@ hr {
   text-decoration: none;
   position: 0;
   bottom: 0;
-
-  /* Transition Code */
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
+}
+.links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #075c9e;
+  transition: width .25s;
 }
 
-
-.links a:hover {
-  border-bottom: solid 2px #075c9e;
+.links a:hover::after {
+  width: 100%;
 }
 
 a:link {
