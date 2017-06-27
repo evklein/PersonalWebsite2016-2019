@@ -105,11 +105,9 @@ ul {
   border: solid 2px #E06F5C;
 }
 
-ul li img {
+img {
   width: 30px;
   height: 30px;
-  margin-right: 25px;
-  vertical-align: middle;
 }
 
 ul li {
