@@ -71,18 +71,16 @@ hr {
 
 
 .links a:hover {
-  background-color: #075c9e;
-  color: white;
-  border-radius: 8px;
+  border-bottom: solid 2px #075c9e;
 }
 
 a:link {
-  color: #00628B;
+  color: #075c9e;
   text-decoration: none;
 }
 
-a:visited {
-  color: #00628B;
+a:visited { 
+  color: #075c9e;
   text-decoration: none;
 }
 
