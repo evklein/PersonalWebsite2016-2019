@@ -1,0 +1,265 @@
+<h2>Discovery</h2>
+Several months ago, we began learning about basic image processing in my
+ Computer Science class. While it was a fairly basic concept that I was already
+ quite familiar with due to my prior experience in drawing cartoon dinosaurs and
+  ghosts for small games, I still enjoyed the unit greatly and learned a lot
+about the subject. I enjoyed actually making the various filters that you could
+apply to an image, like sucking all but the green values out of an image, or
+adding a <a href="http://en.wikipedia.org/wiki/Photographic_print_toning#Sepia_toning">
+sepia tone</a>.
+After finishing the unit, I decided to create a poster showing off my new
+knowledge of image processing.
+<p>The result:</p>
+<img class="image-center" src="../static/blog/Steganography/smokey.jpg"
+alt="smokey" width="300" height="199" />
+
+<p>After proudly brandishing this fine piece of modern art on a programming/game
+development community that I regularly visit, one user gave me a challenge
+which I could use my new-found imaging knowledge with. It involved the use of
+ something I had never heard of before called <a href="http://en.wikipedia.org/wiki/Steganography">
+ Steganography,</a> or <strong>the art of hiding things in plain sight.</strong>
+ While it would be several months before I would begin to actually dip my toes
+ into this fascinating cryptographic method, it immediately intrigued me as a
+  tool and as an art form.</p>
+
+<h1>Stegory</h1>
+<p>In late November, as the stress of the holiday season and finals began to settle
+ in, I decided to sit down and try out this 'Steganography' technique that I had
+  heard about. What I came up with was a simple Steganography suite which I
+  named 'Stegory,' which literally means 'to apply hiding.' Included in the
+  suite is a a very simple GUI dedicated to encrypting images with other images,
+   as well as decrypting them to reveal the original.</p>
+
+My favorite way to describe Stegory and how it works is the 'Histiaeus's slave'
+example. From <a href="http://en.wikipedia.org/wiki/Histiaeus">Wikipedia</a>:
+<blockquote cite="http://en.wikipedia.org/wiki/Histiaeus">"...according to
+ Herodotus, Histiaeus was unhappy having to stay in Susa, and made plans to
+  return to his position as tyrant of Miletus by instigating a revolt in Ionia.
+  In 499 BC, <b>he shaved the head of his most trusted slave, tattooed a message
+   on his head, and then waited for his hair to grow back. The slave was then
+   sent to Aristagoras, who was instructed to shave the slave's head again and
+    read the message</b>, which told him to revolt against the Persians."</blockquote>
+The beauty of Steganography is that not only is the information being well hidden,
+ but the fact that there even is any information being hidden. Cryptography may
+ convey privacy, but Steganography conveys secrecy. After all, how can a hacker
+ crack a code that he doesn't even know exists?
+
+I decided to explore this magic using image processing, just to see what I could
+ do with it.
+
+<h2>LSB</h2>
+<p>LSB or '<strong>l</strong>east <strong>s</strong>ignifigant <strong>b</strong>it'
+encryption is one of the most common methods of image-based steganography. It
+ works like this:</p>
+
+<p>I have several 'carrier' values. Let's say these values are... 72, 39, 54. We
+ convert them to binary numbers so we end up with 1001000, 100111, and 110110,
+ respectively.</p>
+
+<p>Now, let's say we have a carrier message, more commonly referred to as a
+'payload.' Let's say our payload is 4. We want to hide the message '4' inside of
+ those three carrier values that were listed above. We convert our payload to
+  binary as well and we end up with 100.</p>
+
+Let's lay these numbers out:
+Carrier values:
+<ul>
+	<li>10010<u>0</u></li>
+	<li>10011<u>1</u></li>
+	<li>11011<u>0</u></li>
+</ul>
+<p>Notice how the last digits of each carrier binary are underlined? There's a
+reason for that. Those are the parts that are going to be encrypted. LSB
+Steganography works by substituting the least significant bit of any value with
+a payload value. You'll see why in a second, but first let's go ahead and
+actually perform the encryption.</p>
+
+<p>With our carrier '100,' we encrypt like this.</p>
+
+<p>Our first value 10010<u>0</u> turns into 100100<u>1</u>.</p>
+<p>Our second value 1001<u>1</u> turns into 10011<u>0</u>.</p>
+<p>Our final value 11011<u>0</u> stays the same.<p>
+
+<p>Now, if we convert these values back to decimal integers, we get 73, 38, and 54.
+Compared to our original values of 72, 39, 54, you're able to tell that these
+numbers have been altered, but you have to look at the bigger picture. If I did
+this with RGB values within an image, would I even be able to tell the
+difference between the new color?</p>
+
+<p>Well, there's only one way to find out.</p>
+
+<p>We have a single pixel, RGB (198, 4, 28). We want to encrypt this pixel with the
+ message we were using previously, 4.</p>
+
+<ul>
+  <li>198: 1100011<u>0</u></li>
+  <li>4: 0000010<u>0</u></li>
+  <li>28: 0001110<u>0</u></li>
+</ul>
+
+<p>(You might be wondering why I automatically made these binary values 8-bit. I
+ did this mostly for consistency's sake. Each value in RGB can only go from 0 to
+  255, effectively making a single RGB pixel 24-bits long.) So, let's get to
+  encrypting. If we encrypt the number 4 (100 in binary), 1 bit into each RGB
+  value, we end up with a new color value: RGB (199, 4, 28). The human eye
+  cannot detect the difference here. See for yourself:<p>
+<img class="image-center" src="../static/blog/Steganography/color_differences.png" width="200" height="100" />
+
+<p>Completely indistinguishable. This works <i>most</i> times.</p>
+
+<h3>Drawbacks</h3>
+
+<p>There are several problems with the LSB method.</p>
+
+<p>For one, it's common. It is the most used and recognized Steganographic
+method in image processing. There are programs dedicated to catching it and any
+cryptographer with even the most elementary knowledge of Steganography will know
+ to look for it.</p>
+
+<p>My biggest problem with it is a problem that I commonly describe as
+carrier/payload ratio. that in order to hide an entire image, the carrier has to
+ be much, much larger than the payload. If you were to hide 1 bit of information
+  inside of each RGB value for every pixel in the carrier image, the carrier
+  would have to be 8 times larger, as you need 8 RGB values (so roughly
+  2.66666666 pixels) to hide a single RGB value (0.33333333 pixels).</p>
+
+<p>Even with these drawbacks, it is still an effective method, although I still
+wouldn't recommend using it in a serious manner. You can do amazing things with
+LSB, but not with LSB on it's own. You need flexibility and variation to really
+make it worth it.</p>
+
+<p>And that's how I came up with 3-2-3 encryption.</p>
+
+<h1>3-2-3 and Variants</h1>
+
+</p>3-2-3 encryption isn't necessarily something that I invented myself. It's
+just a different method of LSB. I gave it its own name because I referred to it
+ too much as 'the LSB variant.' It has its own system of variants, strengths,
+ and weaknesses. In particular, 3-2-3 fixes (at least partially) the
+ carrier/payload ratio problem. Instead of having the carrier be 8 times bigger
+  than the payload, the carrier now only has to be <b>3</b> times bigger.
+  Magical. 3-2-3 works in the same way that LSB does, but it does it in a
+   different way: by encrypting more than 1 bit per RGB value.</p>
+
+<h3>Usage</h3>
+
+<img src="../static/blog/Steganography/carrier.png"
+ width="100" height="100" /><img src="../static/blog/Steganography/payload.png"
+  width="100" height="100" />
+
+<p>We have two pixels here. Now remember, 3-2-3 works on a 1:3 ratio. So this
+carrier pixel can only contain 1/3 of the data from this payload pixel. But how
+ can we seperate that data? Well, the answer is pretty simple: via RGB value.
+  So this carrier pixel will only be able to carry ONE of the RGB values. We'll
+   do red, because that's the first in the sequence of 'red, green blue.'</p>
+
+<p>We start the same way as we did LSB. Convert any carrier values to binary.
+We'll do 8-bit again because that is the length of an RGB value.</p>
+
+<ul>
+  <li>0: 00000000</li>
+  <li>97: 01100001</li>
+  <li>255: 11111111</li>
+</ul>
+
+<p>Our payload is 255, so 11111111. Now, we need to fit this entire value into
+our 3 carrier values. How? By altering the carrier values to hold a certain
+digit for each RGB value. <b>Three</b> for the first value, <b>two</b> for the
+second, and <b>three</b> for the third. 3, 2, and 3. So we end up with:</p>
+
+<p>00000<u>000</u> ➝ 00000<u>111</u></p>
+<p>011000<u>01</u> ➝ 011000<u>11</u></p>
+<p>11111<u>111</u> ➝ 11111<u>111</u> (stays the same)
+
+<p>Convert back to integers and we end up with our new carrier values: 7, 99,
+ and 255. Now, these numbers are actually quite different from each other. But
+visually...<p>
+
+<img class="image-center" src="../static/blog/Steganography/color_differences2.png"
+ width="201" height="100" />
+
+<p>The color difference here is significantly larger than the one in LSB, but
+you'd have to open up these colors in two separate tabs and switch back and
+forth rapidly in order to really spot the difference.<p>
+
+<p>But how does a real hidden image look? Could you spot the difference easily?
+ The answer is yes and no. You could spot the difference between an original
+ image and a 3-2-3 image, but you'd have to really look close at the pixel
+ values, or do the tab switching method (something I did a lot when testing
+ Stegory).<p>
+
+<p>Here's a few example photos. I would recommend pulling these into an image
+ editor and examining the images in greater detail if you really want to get a
+ sense of how much 3-2-3 distorts the carrier.<p>
+
+<img class="image-center" src="../static/blog/Steganography/hamburger_example.png"
+width="300" height="88" />
+
+<img class="image-center" src="../static/blog/Steganography/dog_example.png"
+ width="300" height="103" />
+
+<p>So  as you can see, both examples work quite well.</p>
+
+<p>The fun thing about 3-2-3 is that each value is interchangeable. I could do
+2-3-3, 3-3-2, or I could even change the numbers if I really wanted to and have
+combinations like 4-3-1, or 2-2-4. I would not recommend doing that second
+example, as the distortion from the image would be immense and easy to spot.<p>
+
+<p>Like LSB, 3-2-3 has a lot of strengths and even gets away with improving the
+carrier/payload ratio. 3-2-3 isn't perfect, however, as it comes with several of
+its own headaches.<p>
+
+<h3>Grayscale and other Annoyingly Incompatible Images</h3>
+<img class="image-center" src="../static/blog/Steganography/gray_scale.png"
+ width="300" height="168" />
+
+<p>Grayscale images won't work with 3-2-3. This is due to the nature of how
+greyscale images work. Greyscale images rely on having all 3 RGB values the same.
+ So you'd never find a true greyscale image with a value like RGB (3, 27, 199)
+ in it. There's definitely ways around this, but I'm not going to explore them.</p>
+
+<p>Several other image patterns won't work, including images with all but one
+RGB value sucked out. There are plenty more, but it would take me forever to
+discover all of them.<p>
+
+<h3>The Great Gradient Predicament</h3>
+<p>I want to preface this by saying that when I first discovered this critical flaw,
+I was <b>pissed.</b> While there is <i>some</i> distortion, and it might be
+<i>possible</i> to tell the difference between an encrypted image and an
+ original, nothing really compares to this critical flaw. The problem: 3-2-3
+ just absolutely destroys gradients. They become severely pixelated and easily
+ noticeable, even to somebody who isn't looking for flaws. The worst part about
+  it is that gradients are <b>everywhere.</b> Any photos of car windows,
+  sunlight cascading over a surface, anything like that looks severely distorted
+   by 3-2-3. Here's an example:<p>
+<p style="text-align: center;">We start with a carrier:</p>
+<img class="image-center" src="../static/blog/Steganography/gradient.png"
+ width="300" height="300" />
+<p style="text-align: center;">And a payload...</p>
+<img class="image-center" src="../static/blog/Steganography/dino.png"
+width="300" height="180" />
+<p style="text-align: center;">And then we encrypt, and we get...</p>
+<img class="image-center" src="../static/blog/Steganography/gradient_awful.png"
+ width="300" height="300" />
+<p>Look at how messed up the gradient is! It is <b>super</b> obvious
+that something is wrong. This is the worst thing about 3-2-3, a presents a pretty
+good problem in the algorithm.</p>
+<p>There's pretty much nothing that you can do here. LSB doesn't do this, at
+least not to the noticeable extent that 3-2-3 does.</p>
+
+<h1>Conclusion</h1>
+<p>To summarize what I said before: not only are you hiding the information, you
+are hiding the very <b>fact</b> that you are hiding that information. It is a
+beautiful thing that I imagine I would use in the future if I ever needed to
+convey secret information to informants, or something like that (I always wanted
+ to be a spy). I enjoyed my time with Stegory and will continue to work on it
+ for a while in order to perfect and clean it. With 3-2-3, LSB, and the various
+ flaws and strengths that accompany each, I feel I have successfully learned a
+ lot about Steganography. Learning about the flaws like the Great Gradient
+ Predicament and grayscale error were frustrating to discover, but helped me
+ learn more about the process than I could from just researching it.<p>
+
+<p>Overall,  Steganography, when done right, is an
+extremely effective method of secret communication which should definitely be
+taken into consideration during circumstances regarding  cryptography or other
+privacy methodologies.</p>

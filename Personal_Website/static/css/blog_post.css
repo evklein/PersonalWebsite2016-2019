@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'PageFont';
+    src: url('../fonts/ABeeZee-Regular.otf');
+}
+
+html, body {
+  width: 100%;
+  background-color: #E6E6DC;
+  position: relative;
+}
+
+.content-wrapper {
+  padding-left: 250px;
+  padding-right: 250px;
+  color: #63635F;
+  font-family: 'PageFont';
+}
+
+.title-wrapper {
+    text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.image-center {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.push {
+  padding-bottom: 90px;
+}

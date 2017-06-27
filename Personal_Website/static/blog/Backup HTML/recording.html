@@ -1,0 +1,151 @@
+I had to make a recording section for my newest <a href="/portfolio/Song-Friend">
+song writing application.</a> So I had to make a section of the app for
+capturing audio.
+
+<img class="image-center" src="../static/blog/Recording/screenshot.png" />
+
+<p>The problem with this interface is that there was a feature I wanted which
+	couldn't be easily implemented through Android's native <code
+	class="prettyprint"><a
+	href="http://developer.android.com/reference/android/media/AudioRecord.html">
+	AudioRecord</a></code> class. <code>AudioRecord</code> doesn't allow for
+	start/pause/start recording. So I had to write my own way of doing it.</p>
+
+<h1>Algorithm</h1>
+
+<ol>
+	<li>User begins recording. Capture all audio data to a <code
+		class="prettyprint">byte</code> array.</li>
+	<li>User pauses recording. Write all audio data to a temporary <code
+		class="prettyprint">PCM</code> file, save this somewhere nice. In SongFriend
+		 I have it saved to the <code class="prettyprint">/SongFriend/Temps/</code>
+		 directory on the Android's SD card.</li>
+	<li>Repeat steps 1-2 until the user is finished recording.</li>
+	<li>Create a master file, where all your audio data will finally come together
+		 to make a complete audio track.</li>
+	<li>Start the master file with the <a
+		href="http://www.topherlee.com/software/pcm-tut-wavformat.html">44-byte WAV
+		header</a> that goes onto every single <code>WAV</code> file.</li>
+	<li>Begin to add your <code>PCM</code> files onto the end, concatenating each
+		one to the end of the last until you are all out of data.</li>
+</ol>
+
+<p>Voila! You're done. You now have a completed audio file file that you can
+	listen to.</p>
+<h2>Code</h2>
+<p><code>AudioRecord</code> in itself is actually pretty easy to use.</p>
+
+<p>First things first, you'll need a size for your buffer.</p>
+
+<p><code class="prettyprint">bufferSize = AudioRecord.getMinBufferSize(
+	SAMPLE_RATE, CHANNEL, ENCODING);</code></p>
+
+<p>Then, to instantiate your <code class="prettyprint">AudioRecord</code>:<p>
+<p><code class="prettyprint">AudioRecord audioRecord = new AudioRecord(
+	MediaRecorder.AudioSource.MIC, SAMPLE_RATE, ENCODING, bufferSize);</code></p>
+
+<p>You'll also need a <code>byte</code> array to store your data.<p>
+<pre><code>byte[] audioData = new byte[bufferSize];</code></pre>
+To read the actual data into its own file, I ran this on a seperate thread. The
+code is below.<pre><code class="prettyprint">  @Override
+    public void run()
+    {
+        FileOutputStream outputStream = null;
+        ByteArrayOutputStream recordingData = new ByteArrayOutputStream();
+        DataOutputStream dataStream = new DataOutputStream(recordingData);
+
+        try
+        {
+            outputStream = new FileOutputStream(writePath);
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
+        while (audioRecorder.isRecording())
+        {
+            audioRecord.read(audioData, 0, audioData.length);
+
+            try
+            {
+                outputStream.write(audioData, 0, bufferSize);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+        try
+        {
+            dataStream.flush();
+            dataStream.close();
+            if (outputStream != null)
+                outputStream.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }</code>
+</pre>
+<p>I just want to point something out about this section:</p>
+<pre><code class="prettyprint">
+				while (audioRecorder.isRecording())
+        {
+            audioRecord.read(audioData, 0, audioData.length);
+
+            try
+            {
+                outputStream.write(audioData, 0, bufferSize);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }</code>
+</pre>
+<p><code class="prettyprint">audioRecord</code> takes the data from the
+	microphone and dumps it into <code class="prettyprint">audioData</code>,
+	that is its primary responsibility and job. Then, all the
+	<code class="prettyprint">byte</code> data is written to an external file
+	using <code>outputStream</code>. Now, every single time the user hits the
+	record button again, a new file is created (I started all my file names with
+	the corresponding number of how many times the user had started recording).
+	So if a user starts and stops recording 3 times, there will be 3 files filled
+	with raw PCM data.</p>
+
+<h3>File concatenation</h3>
+
+<p>All WAV files begin with a 44-byte header, which contains various
+	information about the file such as encoding and sample rate.
+	 <a href="http://www.topherlee.com/software/pcm-tut-wavformat.html">I used this
+		  as a reference.</a> In terms of code, I simply used a <code
+			class="prettyprint">DataOutputStream</code> and wrote directly into my
+			final file.</p>
+<pre><code class="prettyprint">/* Header */
+dataOutputStream.writeBytes("RIFF");
+dataOutputStream.write(AudioUtilities.intToByteArray(36 + (length * 1 * 16 / 8)), 0, 4);
+dataOutputStream.writeBytes("WAVE");
+dataOutputStream.writeBytes("fmt ");
+dataOutputStream.write(AudioUtilities.intToByteArray(16), 0, 4);
+dataOutputStream.write(AudioUtilities.shortToByteArray((short) 1), 0, 2);
+dataOutputStream.write(AudioUtilities.shortToByteArray((short) 1), 0, 2);
+dataOutputStream.write(AudioUtilities.intToByteArray(AudioUtilities.SAMPLE_RATE), 0, 4);
+dataOutputStream.write(AudioUtilities.intToByteArray(AudioUtilities.SAMPLE_RATE * 1 * 16 / 8), 0, 4);
+dataOutputStream.write(AudioUtilities.shortToByteArray((short) (1 * 16 / 8)), 0, 2);
+dataOutputStream.write(AudioUtilities.shortToByteArray((short) 16), 0, 2);
+dataOutputStream.writeBytes("data");
+dataOutputStream.write(AudioUtilities.intToByteArray(length), 0, 4);
+</code></pre>
+<p>This is just an example of how I did it, and it's a little bit sloppy, but still a good example of how to do it.</p>
+
+<p>The last step is to concatenate your PCM files to the end of the header. This
+	 is actually pretty simple, so I won't provide any code for it. What you'll
+	  want to do is go back through your temporary PCM files and then read then
+		back into <code class="prettyprint">byte</code> arrays. Then combine all the
+		 <code class="prettyprint">byte</code> arrays you've collected, followed by
+		 using your <code>DataOutputStream</code> to write to your final file.</p>
+
+<p>Hope it helps!</p>

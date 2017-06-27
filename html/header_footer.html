@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<html>
+  {% block content %}
+  <script src="https://use.fontawesome.com/0198059e4b.js"></script>
+  <header>
+    <div class="navbar-wrapper">
+      <div class="links">
+        <a class="header-link" href="/">About</a>
+        <a class="header-link" href="/portfolio">Portfolio</a>
+        <a class="header-link" href="/contact">Contact</a>
+      </div>
+    </div> 
+    <hr />
+  </header>
+  <div class="footer">
+    <hr />
+    <a href="https://github.com/hasherr"><i class="fa fa-github" aria-hidden="true"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="https://www.linkedin.com/in/evan-klein-40b255119"><i class="fa fa-linkedin" aria-hidden="true"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="/static/documents/resume.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+    <p>© 2017 Evan Klein</p>
+  </div>
+  <link rel="stylesheet" href="{% static 'css/header_footer_style.css' %}">
+  {% endblock %}
+</html>

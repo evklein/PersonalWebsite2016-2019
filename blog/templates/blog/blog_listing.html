@@ -1,0 +1,20 @@
+{% include "header_footer.html" %}
+{% load staticfiles %}
+
+<html>
+  <title>Blog</title>
+  <body>
+    <h2>Blog</h2>
+    {% for post in all_posts %}
+    <a href="{{ post.post_url }}">
+      <div class="post">
+        <h3>{{ post.title }}</h3>
+        <p class="date">Date Posted: {{ post.date_posted }}</p>
+        <p class="short_description">{{ post.short_description }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </body>
+  <div class="push"></div>
+  <link rel="stylesheet" href="{% static 'css/blog_listing.css' %}">
+</html>

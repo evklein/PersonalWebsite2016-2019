@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'PageFont';
+    src: url('../fonts/ABeeZee-Regular.otf');
+}
+
+@font-face {
+  font-family: 'DateFont';
+  src: url('../fonts/Adequate-ExtraLight.ttf')
+}
+
+body {
+  background-color: #E6E6DC;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'PageFont';
+  font-size: 28px;
+  color: #63635F;
+}
+
+.post {
+  margin-left: 250px;
+  margin-right: 250px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: solid 2px white;
+  color: #63635F;
+  font-family: 'PageFont';
+  height: 170px;
+  text-decoration: none;
+
+  /* Transition Code */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+.post:hover {
+  background-color: #00628B;
+  color: white;
+}
+
+.post h3 {
+  padding-left: 30px;
+  font-size: 24px;
+}
+
+.post p {
+  padding-left: 30px;
+}
+
+.push {
+  padding-bottom: 90px;
+}

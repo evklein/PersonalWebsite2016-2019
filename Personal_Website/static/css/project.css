@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'PageFont';
+    src: url('../fonts/ABeeZee-Regular.otf');
+}
+
+html, body {
+  background-color: #E6E6DC;
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+  color: #63635F;
+  font-family: 'PageFont', Helvetica;
+}
+
+p {
+  text-align: left;
+  font-size: 18px;
+  color: #63635F;
+  font-family: 'PageFont', Helvetica;
+}
+
+p.short_description {
+  text-align: center;
+  font-size: 12px;
+}
+
+hr.title-bar {
+  width: 46%;
+}
+
+.arrow {
+  border: none;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  display: block;
+  top: 30%;
+  background-color: rgba(84, 84, 84, 132);
+  border-radius: 50%;
+  color: #E6E6DC;
+  font-size: 18px;
+  text-align: center;
+}
+
+.arrow:active {
+  background-color: rgba(22, 22, 22, 132);
+}
+
+.arrow:focus {
+  outline: none;
+}
+
+.arrow#left {
+  position: absolute;
+  right: 27%;
+}
+
+.arrow#right {
+  position: absolute;
+  left: 27%;
+}
+
+.screenshots {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.screenshot {
+  border: solid 1px black;
+}
+
+.image-slider-markers {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 15px;
+}
+
+img.marker {
+  width: 7px;
+  height: 7px;
+  border: none;
+}
+
+.descriptions {
+  width: 700px;
+  margin: 0 auto;
+}
+
+img {
+  border: solid 1px #63635F;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+
+  /* Scale Up Code */
+  -webkit-transition: all .2s ease; /* Safari and Chrome */
+  -moz-transition: all .2s ease; /* Firefox */
+  -ms-transition: all .2s ease; /* IE 9 */
+  -o-transition: all .2s ease; /* Opera */
+  transition: all .2s ease;
+}
+
+.link-images {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img.github {
+  border: none;
+  display: inline-block;
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+}
+
+img.github:hover {
+  -webkit-transform:scale(1.1); /* Safari and Chrome */
+  -moz-transform:scale(1.1); /* Firefox */
+  -ms-transform:scale(1.1); /* IE 9 */
+  -o-transform:scale(1.1); /* Opera */
+  transform:scale(1.1);
+}
+
+img.store {
+  border: none;
+  display: inline-block;
+  width: 300px;
+  height: 89px;
+  margin: 0 auto;
+  margin: 10px;
+}
+
+img.store:hover {
+  -webkit-transform:scale(1.1); /* Safari and Chrome */
+  -moz-transform:scale(1.1); /* Firefox */
+  -ms-transform:scale(1.1); /* IE 9 */
+  -o-transform:scale(1.1); /* Opera */
+  transform:scale(1.1);
+}
+
+.push {
+  padding-bottom: 90px;
+}
