@@ -15,9 +15,15 @@ html, body {
   overflow: auto;
 }
 
+.introContent {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
 h2 {
   font-size: 86px;
-  width: 100%;
+  width: 30%;
   color: #63635F; /* #63635F;*/
   font-family: 'TitleFont';
   position: absolute;
@@ -37,10 +43,12 @@ h3 {
 p {
   padding-left: 250px;
   padding-right: 250px;
+  padding-top: 100px;
   color: #63635F;
-  font-family: 'PageFont', Helvetica;
+  font-family: 'TitleFont';
   font-size: 18px;
   text-align: center;
+  float: left;
 }
 
 .portfolio-link {
