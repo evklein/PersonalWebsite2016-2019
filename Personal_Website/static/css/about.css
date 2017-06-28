@@ -68,9 +68,10 @@ img.profile {
 }
 
 #skills {
-  padding-left: 250px;
+  padding-left: 225px;
   padding-top: 425px;
   float: left;
+  width: 100%;
 }
 
 h3 {
@@ -78,6 +79,11 @@ h3 {
   font-family: 'TitleFont';
   color: #075c9e;
   float: left;
+}
+
+.skillsListing {
+    float:left;
+    padding-top: 100px;
 }
 
 li h4 {
@@ -112,8 +118,9 @@ ul {
 }
 
 img {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
+  padding-left: 60px;
 }
 
 ul li {
