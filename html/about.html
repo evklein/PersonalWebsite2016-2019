@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 <html>
+  <scrip src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Evan Klein</title>
   <body>
     <div class="container">
@@ -10,70 +11,18 @@
 	  <span style="color:#00a860">I'm Evan.</span></h2>
           <p>I'm a software developer currently attending Purdue University, specializing in full-stack web development.<br>I enjoy <span style="color:#00a860">solving problems</span> and <span style="color:#00a860">making cool stuff.</span></p>
       </div>
-      <!--<h3><b>Skills</b></h3>
-      <div class="lists">
-        <div class="experience">
-          <ul class="languages">
-            <div class="list-content">
-              <li><h4>Languages</h4></li>
-              <li><img src="{% static 'images/skills/java.png' %}">Java</li>
-              <li><img src="{% static 'images/skills/visual_basic.png' %}">Visual Basic</li>
-              <li><img src="{% static 'images/skills/c-sharp.png' %}">C#</li>
-              <li><img src="{% static 'images/skills/python.png' %}">Python</li>
-              <li><img src="{% static 'images/skills/html5.png' %}">HTML5</li>
-              <li><img src="{% static 'images/skills/css3.png' %}">CSS3</li>
-              <li><img src="{% static 'images/skills/javascript.png' %}">Javascript</li>
-              <li><img src="{% static 'images/skills/c.png' %}"/>C & C++</li>
-            </div>
-          </ul>
-
-          <ul class="tools">
-            <div class="list-content">
-              <li><h4>Tools</h4></li>
-              <li><img src="{% static 'images/skills/asp_net.png' %}">ASP.NET</li>
-              <li><img src="{% static 'images/skills/json_net.png' %}">Json.NET</li>
-              <li><img src="{% static 'images/skills/libGDX.png' %}">libGDX</li>
-              <li><img src="{% static 'images/skills/sunlight_congress_api.png' %}">Congress API</li>
-              <li><img src="{% static 'images/skills/django.png' %}">Django</li>
-              <li><img src="{% static 'images/skills/javascript_chrome_apis.png' %}">Chrome JS APIs</li>
-              <li><img src="{% static 'images/skills/google_maps.png' %}">Maps API</li>
-              <li><img src="{% static 'images/skills/git.png' %}" />Git</li>
-            </div>
-          </ul>
-
-          <ul class="Platforms">
-            <div class="list-content">
-              <li><h4>Platforms</h4></li>
-              <li><img src="{% static 'images/skills/android.png' %}">Android</li>
-              <li><img src="{% static 'images/skills/azure.png' %}">Azure</li>
-              <li><img src="{% static 'images/skills/dot_net.png' %}">.NET</li>
-              <li><img src="{% static 'images/skills/wordpress.png' %}">WordPress</li>
-              <li><img src="{% static 'images/skills/heroku.png' %}">Heroku</li>
-              <li><img src="{% static 'images/skills/aws.png' %}">AWS</li>
-              <li><img src="{% static 'images/skills/blanks.png' %}"></li>
-              <li><img src="{% static 'images/skills/blanks.png' %}"></li>
-            </div>
-          </ul>
+      <div id="skills">
+        <h3>Skills</h3>
+        <div class="skillsListing">
+	  <img src="{% static 'images/skills/java.png' %}">
+          <img src="{% static 'images/skills/c-sharp.png' %}">
+          <img src="{% static 'images/skills/python.png' %}">
+          <img src="{% static 'images/skills/html5.png' %}">
+          <img src="{% static 'images/skills/css3.png' %}">
+          <img src="{% static 'images/skills/javascript.png' %}">
+          <img src="{% static 'images/skills/c.png' %}">
         </div>
-      </div>
-
-      <p class="portfolio-link">Seen enough? <a href="/portfolio/">Check out
-         some of my work!</a> Or take a look at <a href="/static/documents/resume.pdf">my resume!</a><p>
-    </div>
-    <div class="push"></div>
-    -->
-    <div class="skills">
-      <h3>Skills</h3>
-      <div class="skillsListing">
-	<img src="{% static 'images/skills/java.png' %}">
-        <img src="{% static 'images/skills/c-sharp.png' %}">
-        <img src="{% static 'images/skills/python.png' %}">
-        <img src="{% static 'images/skills/html5.png' %}">
-        <img src="{% static 'images/skills/css3.png' %}">
-        <img src="{% static 'images/skills/javascript.png' %}">
-        <img src="{% static 'images/skills/c.png' %}">
-      </div>
-    </div> 
+      </div> 
   </div>
   </body>
   <link rel="stylesheet" href="{% static 'css/about.css' %}">

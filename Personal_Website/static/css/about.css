@@ -34,13 +34,6 @@ h2 {
   font-weight: bold;
 }
 
-h3 {
-  text-align: center;
-  font-size: 26px;
-  color: #63635F;
-  font-family: 'PageFont', Helvetica;
-}
-
 p {
   padding-left: 250px;
   padding-right: 125px;
@@ -72,6 +65,21 @@ img.profile {
   height: 200px;;
   margin: 0 auto;
   vertical-align: center;
+}
+
+#skills {
+  padding-left: 250px;
+  padding-top: 425px;
+  float: left;
+}
+
+h3 {
+  font-size: 48px;
+  font-family: 'TitleFont';
+  color: #075c9e;
+  float: left;
+  padding-left: 250px;
+  padding-top: 425px;
 }
 
 li h4 {
