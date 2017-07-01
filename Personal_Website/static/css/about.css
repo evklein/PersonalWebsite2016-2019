@@ -84,7 +84,12 @@ h3 {
 .skillsListing {
     padding-top: 160px;
 }
-
+.row {
+  padding-bottom: 10px;
+}
+.skillSpacer {
+  width: 90px;
+}
 .skill {
   vertical-align: top;
   display: inline-block;
