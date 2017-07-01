@@ -69,7 +69,7 @@ img.profile {
 
 #skills {
   padding-left: 150px;
-  padding-top: 500px;
+  padding-top: 600px;
   float: left;
   width: calc(100% - 150px);
 }
@@ -92,7 +92,7 @@ h3 {
   display: inline-block;
   text-align: center;
   width: 91px;
-  padding-left: 90px;
+  padding-left: 105px;
 }
 .blank {
   visibility: hidden;
