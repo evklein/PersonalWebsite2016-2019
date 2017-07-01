@@ -85,14 +85,14 @@ h3 {
     padding-top: 160px;
 }
 .row {
-  padding-bottom: 10px;
+  padding-bottom: 40px;
 }
 .skill {
   vertical-align: top;
   display: inline-block;
   text-align: center;
   width: 100px;
-  padding-left: 50px;
+  padding-left: 60px;
 }
 .blank {
   visibility: hidden;
