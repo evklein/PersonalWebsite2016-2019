@@ -87,9 +87,6 @@ h3 {
 .row {
   padding-bottom: 10px;
 }
-.skillSpacer {
-  width: 90px;
-}
 .skill {
   vertical-align: top;
   display: inline-block;
@@ -97,7 +94,9 @@ h3 {
   width: 100px;
   padding-left: 50px;
 }
-
+.blank {
+  visibility: hidden;
+}
 .skill img {
   margin: auto;
   width: 60px;
