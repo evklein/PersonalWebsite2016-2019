@@ -69,7 +69,6 @@ img.profile {
 
 #skills {
   padding-top: 600px;
-  float: left;
   width: 100%;
   text-align: center;
 }
@@ -79,19 +78,16 @@ h3 {
   font-family: 'TitleFont';
   color: #075c9e;
   float: left;
+  margin-left: 150px;
 }
 
 .skillsListing {
-  padding-top: 50px;
   display: inline-block;
 }
 .row {
   padding-bottom: 40px;
 }
 .skill {
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
   width: 91px;
 }
 .blank {
