@@ -82,6 +82,7 @@ h3 {
 }
 
 .skillsListing {
+  padding-top: 50px;
   display: inline-block;
 }
 .row {
