@@ -68,9 +68,6 @@ img.profile {
 }
 
 #skills {
-  padding-top: 600px;
-  width: 100%;
-  text-align: center;
 }
 
 h3 {
@@ -82,13 +79,10 @@ h3 {
 }
 
 .skillsListing {
-  display: inline-block;
 }
 .row {
-  padding-bottom: 40px;
 }
 .skill {
-  width: 91px;
 }
 .blank {
   visibility: hidden;
