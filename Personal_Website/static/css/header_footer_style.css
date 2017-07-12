@@ -112,23 +112,34 @@ a:visited {
   line-height: 30px;
 }
 
-.footer a {
-    padding-top: 8px;
-    font-size: 28px;
+.footer .fa {
+  font-size: 32px;
+  margin-left: 50px;
+
+ /* Transition Code */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
 }
 
-.footer a:link {
-  color: #075c9e;
-  text-decoration: none;
-}
-
-.footer a:visited {
-  color: #075c9e;
-  text-decoration: none;
+.footer .fa:hover {
+  color: #aeaebd;
 }
 
 .footer p {
-    font-size: 14px;
-    color: #075c9e;
-    font-family: 'TitleFont';
+  font-size: 14px;
+  color: #075c9e;
+  font-family: 'TitleFont';
+  /* Transition Code */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+
+}
+.footer p:hover {
+  color: #8eaebd;
 }
