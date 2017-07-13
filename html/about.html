@@ -1,4 +1,4 @@
-{% include "header_footer.html" %}
+{% INCLude "header_footer.html" %}
 {% load staticfiles %}
 
 <html>
@@ -15,7 +15,7 @@
         <h3>Diverse knowledge and <span style="color:#00a860">experience.</span></h3>
         <div class="skillsListing">
 	  <div class="row">
-	    <div class="skill">
+	    <div class="skill firstInRow">
 	      <img src="{% static 'images/skills/java.png' %}"><br/>
 	      <h3 class="skillName">Java</h3>
 	    </div>
@@ -68,9 +68,12 @@
               <img src="{% static 'images/skills/javascript_chrome_apis.png' %}">
 	      <span class="skillName">Chrome JS API</span>
 	    </div>
+	    <div class="skill blank">
+	      <img src="{% static 'images/skills/blank.png' %}">
+	    </div>
 	  </div>
 	  <div class="row">
-	     <div class="skill">
+	     <div class="skill firstInRow">
 	      <img src="{% static 'images/skills/jquery.png' %}">
 	      <span class="skillName">jQuery</span>
 	    </div>
