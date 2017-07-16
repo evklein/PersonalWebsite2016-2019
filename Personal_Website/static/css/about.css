@@ -183,14 +183,12 @@ li p {
   padding-bottom: 90px;
 }
 
-#portfolio-content {
-	.row {
+#portfolio-content .row {
     	text-align: center;
-	}
-	.project {
+}
+#portfolio-content .project {
 		display: inline-block;
-	}
-	img {
+}
+#portfolio-content img {
 	    width: 200px;
-	}
 }
