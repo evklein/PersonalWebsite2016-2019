@@ -188,6 +188,9 @@ li p {
 }
 #portfolio-content .project {
 	display: inline-block;
+	width: 300px;
+	height: 400px;
+	overflow: hidden; /* temporary */
 }
 #portfolio-content img {
 	width: 300px;
