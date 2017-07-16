@@ -182,3 +182,13 @@ li p {
 .push {
   padding-bottom: 90px;
 }
+
+.Portfolio {
+	.row {
+	    text-align: center;
+	}
+
+	figure {
+		display: inline-block;
+	}
+}
