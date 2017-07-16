@@ -187,6 +187,6 @@ li p {
     text-align: center;
 }
 
-#portfolio-content figure {
+#portfolio-content .project {
 	display: inline-block;
 }
