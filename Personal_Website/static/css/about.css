@@ -184,11 +184,12 @@ li p {
 }
 
 #portfolio-content .row {
-    	text-align: center;
+   	text-align: center;
 }
 #portfolio-content .project {
-		display: inline-block;
+	display: inline-block;
 }
 #portfolio-content img {
-	    width: 200px;
+	width: 300px;
+	height: 175px;
 }
