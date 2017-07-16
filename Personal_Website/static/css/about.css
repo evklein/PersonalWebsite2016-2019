@@ -183,12 +183,10 @@ li p {
   padding-bottom: 90px;
 }
 
-.Portfolio {
-	.row {
-	    text-align: center;
-	}
+#portfolio-content .row {
+    text-align: center;
+}
 
-	figure {
-		display: inline-block;
-	}
+#portfolio-content figure {
+	display: inline-block;
 }
