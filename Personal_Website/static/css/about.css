@@ -92,8 +92,9 @@ h3 {
   display: inline-block;
 }
 .projectRow {
-   width: 400px;
    display: inline-block;
+   float: left;
+   margin-left: 1px;
 }
 .skill {
   border: 0;
