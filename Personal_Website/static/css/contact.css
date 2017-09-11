@@ -12,10 +12,11 @@ html, body {
 
 h2 {
   text-align: center;
-  font-size: 24px;
+  font-size: 40px;
   width: 100%;
-  color: #63635F;
+  color: #E6E6DC;
   font-family: 'PageFont', Helvetica;
+  margin-top: 100px;
 }
 
 form {
@@ -43,9 +44,10 @@ button#submit {
   width: 400px;
   margin-top: 15px;
   height: 50px;
-  border: solid 2px #81A594;
+  border: 0;
+  border-radius: 5px;
   background-color: #00628B;
-  color: white;
+  color: #eaeaea;
   font-family: 'PageFont';
   font-size: 18px;
 }
