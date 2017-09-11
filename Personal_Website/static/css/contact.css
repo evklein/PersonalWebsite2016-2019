@@ -14,7 +14,7 @@ html, body {
   text-align: center;
   font-size: 40px;
   width: 100%;
-  color: #E6E6DC;
+  color: #075c9e;
   font-family: 'PageFont', Helvetica;
   margin-top: 100px;
 }
@@ -46,7 +46,7 @@ button#submit {
   height: 50px;
   border: 0;
   border-radius: 5px;
-  background-color: #00628B;
+  background-color: #075c9e;
   color: #eaeaea;
   font-family: 'PageFont';
   font-size: 18px;
