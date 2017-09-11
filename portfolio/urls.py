@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.portfolio, name='portfolio'),
-    url(r'^Purdue-App/', views.purdue_app, name='Purdue-App'),
+    url(r'^Infinity-Table/', views.infinity_table, name='InfinityTable'),
     url(r'^pluto', views.pluto, name='Pluto'),
     url(r'^dj-say', views.dj_say, name='dj-say'),
     url(r'^Kill-Switch/', views.kill_switch, name='Kill-Switch'),
