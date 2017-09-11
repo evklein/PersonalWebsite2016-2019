@@ -4,7 +4,7 @@
 }
 
 html, body {
-  background-color: #E6E6DC;
+  background-color: #eaeaea;
   position: relative;
   overflow: auto;
   width: 100%;
@@ -17,7 +17,9 @@ h2 {
   color: #63635F;
   font-family: 'PageFont', Helvetica;
 }
-
+.content {
+	margin-top: 100px;
+}
 p {
   text-align: left;
   font-size: 18px;
