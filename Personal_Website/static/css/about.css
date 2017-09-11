@@ -201,6 +201,9 @@ li p {
   padding-bottom: 90px;
 }
 
+#portfolio-content {
+	margin-top: 350px;
+}
 #portfolio-content .row {
    	text-align: center;
 }
