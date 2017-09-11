@@ -12,7 +12,7 @@ html, body {
   background-color: #eaeaea;
   width: 100%;
   position: relative;
-  overflow: auto;
+  overflow: visible;
 }
 .container {
   text-align: center;
