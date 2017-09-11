@@ -185,6 +185,19 @@
        </div>
     </div>
   </div>
+  <h2>Contact</h2>
+    <form role="form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="submit" type="submit">Submit</button>
+    </form>
+    {% if messages %}
+      {% for message in messages %}
+        <script>alert('{{ message }}')</script>
+      {% endfor %}
+    {% endif %}
+    <div class="push"></div>
+
   <div class="footer">
      <hr/>
      <div class="footer-contents">
