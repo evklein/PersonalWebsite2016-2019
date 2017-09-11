@@ -185,6 +185,7 @@
        </div>
     </div>
   </div>
+  <div class="contact">
   <h2>Contact</h2>
     <form role="form" action="" method="post">
         {% csrf_token %}
@@ -196,8 +197,7 @@
         <script>alert('{{ message }}')</script>
       {% endfor %}
     {% endif %}
-    <div class="push"></div>
-
+  </div>
   <div class="footer">
      <hr/>
      <div class="footer-contents">
