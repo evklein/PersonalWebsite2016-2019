@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.portfolio, name='portfolio'),
+    url(r'^chordulator', views.chordulator, name='Chordulator'),
     url(r'^infinity-table', views.infinity_table, name='InfinityTable'),
     url(r'^pluto', views.pluto, name='Pluto'),
     url(r'^dj-say', views.dj_say, name='dj-say'),

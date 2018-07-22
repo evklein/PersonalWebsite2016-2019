@@ -7,6 +7,12 @@ from .models import Project
 def portfolio(request):
     return render_to_response('portfolio_listing.html')
 
+def chordulator(request):
+    page_data = Project.objects.get(title="Chordulator")
+    context = { 'page_data': page_data }
+    template = loader.get_teamplate('projects/project.html')
+    return HttpResponse(template.render(context, request))
+
 def infinity_table(request):
     page_data = Project.objects.get(title="Infinity Table with TabLED")
     context = { 'page_data' : page_data }
