@@ -7,10 +7,16 @@ from .models import Project
 def portfolio(request):
     return render_to_response('portfolio_listing.html')
 
+def pvc(request):
+    page_data = Project.objects.get(title="Purdue Vinyl Club Website")
+    context = { 'page_data': page_data }
+    template = loader.get_template('projects/project.html')
+    return HttpResponse(template.render(context, request))
+
 def chordulator(request):
     page_data = Project.objects.get(title="Chordulator")
     context = { 'page_data': page_data }
-    template = loader.get_teamplate('projects/project.html')
+    template = loader.get_template('projects/project.html')
     return HttpResponse(template.render(context, request))
 
 def infinity_table(request):
