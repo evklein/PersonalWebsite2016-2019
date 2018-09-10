@@ -75,6 +75,8 @@ hr.title-bar {
 
 .screenshot {
   border: solid 1px black;
+  max-width: 600px;
+  max-height: 700px;
 }
 
 .image-slider-markers {
